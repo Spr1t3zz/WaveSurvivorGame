@@ -3,10 +3,7 @@ package io.github.wave_survivor_game.Managers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import io.github.wave_survivor_game.Entities.Player;
-import io.github.wave_survivor_game.Objects.ConsObject;
-import io.github.wave_survivor_game.Objects.HealingGoblet;
-import io.github.wave_survivor_game.Objects.HealingPotion;
-import io.github.wave_survivor_game.Objects.SpeedOrb;
+import io.github.wave_survivor_game.Objects.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +76,7 @@ public class ObjectManager {
             case 3:
                 spawnedObject = new SpeedOrb(randX, randY);
                 break;
+            case 4:
         }
 
         if (player.getHealth() > 0 && spawnedObject != null) {
@@ -87,12 +85,14 @@ public class ObjectManager {
     }
 
         public void spawnObjects() {      //debug funkce
-            HealingGoblet ho1 = new HealingGoblet(5, 7);
-            HealingPotion hp1 = new HealingPotion(6, 7);
-            SpeedOrb sp1 = new SpeedOrb(7, 7);
+            ConsObject ho1 = new HealingGoblet(5, 7);
+            ConsObject hp1 = new HealingPotion(6, 7);
+            ConsObject sp1 = new SpeedOrb(7, 7);
+            ConsObject si = new Sigil(8, 8);
             addObject(ho1);
             addObject(hp1);
             addObject(sp1);
+            addObject(si);
 //
 //            HealingGoblet ho2 = new HealingGoblet(5, 6);
 //            HealingPotion hp2 = new HealingPotion(6, 6);

@@ -19,10 +19,20 @@ public class SFXManager {
         registerSounds();
     }
 
-    public long play(String sound) {
+    public long play(String sound, float volume) {
         Sound s = sounds.get(sound);
-        return s == null ? -1L : s.play();
+        if (s == null) return -1L;
+
+        return s.play(volume * globalVolume);
     }
+
+    public long loop(String sound, float volume) {
+        Sound s = sounds.get(sound);
+        if (s == null) return -1L;
+
+        return s.loop(volume * globalVolume);
+    }
+
 
     public long loop(String sound) {
         Sound s = sounds.get(sound);

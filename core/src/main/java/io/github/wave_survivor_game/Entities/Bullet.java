@@ -18,7 +18,7 @@ public class Bullet extends Entity {
         this.damage = damage;
 
         SFXManager soundManager = SFXManager.getInstance();
-        this.flyingFireball = soundManager.play("flying-fireball");
+        this.flyingFireball = soundManager.play("flying-fireball", 0.03f);
     }
 
     public void update() {

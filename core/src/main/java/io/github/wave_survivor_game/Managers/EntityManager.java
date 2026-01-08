@@ -60,7 +60,7 @@ public class EntityManager {
             }
         }
 //
-//        waveLoop();
+        waveLoop();
 
         entities.removeIf(Entity::isDestroyed);
         entities.addAll(buffer);

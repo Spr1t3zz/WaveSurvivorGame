@@ -26,7 +26,7 @@ public class HealingGoblet extends ConsObject {     //minor healing of 20hp
 
     @Override
     public void specificUsageSound() {
-        SFXManager.getInstance().play("goblet-use");
+        SFXManager.getInstance().play("goblet-use", 10f);
     }
 
 }

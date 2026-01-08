@@ -26,7 +26,7 @@ public class HealingPotion extends ConsObject {     //moderate healing of 50hp
 
     @Override
     public void specificUsageSound() {
-        SFXManager.getInstance().play("potion-use");
+        SFXManager.getInstance().play("potion-use", 0.06f);
     }
 
 }

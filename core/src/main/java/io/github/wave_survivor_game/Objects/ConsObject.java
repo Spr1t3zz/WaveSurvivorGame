@@ -17,7 +17,7 @@ public abstract class ConsObject extends Object {
     public abstract void use(Player player);
 
     public void pickingUpSound() {
-        SFXManager.getInstance().play("picking-up-items");
+        SFXManager.getInstance().play("picking-up-items", 0.04f);
     }
 
     public abstract void specificUsageSound();

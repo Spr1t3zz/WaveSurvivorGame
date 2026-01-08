@@ -89,7 +89,7 @@ public class GameInterface {
 
 
         if (player.getHealth() <= 0 && deathSound == 0) {
-            deathSound = SFXManager.getInstance().play("game-over");
+            deathSound = SFXManager.getInstance().play("game-over", 0.15f);
         }
 
         if (player.getHealth() <= 0) {

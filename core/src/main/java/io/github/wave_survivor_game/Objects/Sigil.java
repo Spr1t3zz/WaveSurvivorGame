@@ -11,7 +11,7 @@ public class Sigil extends ConsObject {
     private static final float radius = 20f; //radius 20 kolem hrace
 
     public Sigil(float x, float y) {
-        super(x * 32, y * 32, 25, 25, 3, "sigil.png", ObjectType.CONSUMABLE, "Strange Sigil");
+        super(x * 32, y * 32, 25, 25, 3, "sigil", ObjectType.CONSUMABLE, "Strange Sigil");
         String description = "When the energy from the sigil is used, creatures around you drop dead.";
     }
 
@@ -38,10 +38,10 @@ public class Sigil extends ConsObject {
 
     @Override
     public void specificUsageSound() {
-        SFXManager.getInstance().play("sigil-use");
+        SFXManager.getInstance().play("sigil-use", 0.2f);
     }
 
     public void soundWhenGone() {
-        SFXManager.getInstance().play("sigil-gone"); //idk, nevim co jeste s tim
+        SFXManager.getInstance().play("sigil-gone", 0.09f); //idk, nevim co jeste s tim
     }
 }

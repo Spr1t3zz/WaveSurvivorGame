@@ -3,6 +3,7 @@ package io.github.wave_survivor_game.Objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import io.github.wave_survivor_game.Entities.Player;
+import io.github.wave_survivor_game.Managers.SFXManager;
 import io.github.wave_survivor_game.Utilities.ObjectType;
 
 import java.util.ArrayList;
@@ -15,6 +16,12 @@ public abstract class ConsObject extends Object {
 
     public abstract void use(Player player);
 
+    public void pickingUpSound() {
+        SFXManager.getInstance().play("picking-up-items");
+    }
+
+    public abstract void specificUsageSound();
+
     public void onInteract(Player player, ArrayList<ConsObject> inventory) {
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.E) && this.type == ObjectType.CONSUMABLE) {
@@ -23,8 +30,10 @@ public abstract class ConsObject extends Object {
                     this.destroy();
                     inventory.add(this);
                     System.out.println(this + " added to inventory");
+                    pickingUpSound();
                 } else if (inventory.size() == 8) {
                     System.out.println("Inventory is full"); //nebere to veci do plneho invenntare a necha veci na zemi
+                    //pouzivam arraylist protoze je superior to pole
                 }
             }
             }

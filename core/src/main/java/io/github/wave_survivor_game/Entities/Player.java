@@ -12,8 +12,8 @@ public class Player extends Entity {
     private int score;
     ArrayList<ConsObject> inventory = new ArrayList<>();
 
-    public Player(String texture) {
-        super((float) Gdx.graphics.getWidth() /2, (float) Gdx.graphics.getHeight() /2, 32, 32, 2, 4, 20, 0, texture, EntityType.PLAYER);
+    public Player() {
+        super((float) Gdx.graphics.getWidth() /2, (float) Gdx.graphics.getHeight() /2, 32, 32, 2, 4, 100, 0, "playerTest", EntityType.PLAYER);
         this.score = 0;
     }
 
@@ -28,7 +28,7 @@ public class Player extends Entity {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)) this.x += speed;
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
-            em.addEntity(new Bullet(x + getWidth() / 2, y + getHeight() / 2, 15, 15, 5, "bulletTest2", this));
+            em.addEntity(new Bullet(x + getWidth() / 2, y + getHeight() / 2, 15, 15, 10, "bulletTest2", this));
 
         }
 
@@ -48,7 +48,9 @@ public class Player extends Entity {
             ConsObject item = inventory.get(index);
             if (item != null) {
                 item.use(this);
+                item.specificUsageSound();
                 inventory.remove(index);
+                //sigils sound for being gone should play here
             }
         }
     }

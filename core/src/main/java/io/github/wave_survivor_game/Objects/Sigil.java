@@ -2,6 +2,7 @@ package io.github.wave_survivor_game.Objects;
 
 import io.github.wave_survivor_game.Entities.Enemy;
 import io.github.wave_survivor_game.Entities.Player;
+import io.github.wave_survivor_game.Managers.SFXManager;
 import io.github.wave_survivor_game.Utilities.ObjectType;
 import io.github.wave_survivor_game.Managers.EntityManager;
 
@@ -33,5 +34,14 @@ public class Sigil extends ConsObject {
                 System.out.println("Killed enemies around thr player");
             }
         }
+    }
+
+    @Override
+    public void specificUsageSound() {
+        SFXManager.getInstance().play("sigil-use");
+    }
+
+    public void soundWhenGone() {
+        SFXManager.getInstance().play("sigil-gone"); //idk, nevim co jeste s tim
     }
 }

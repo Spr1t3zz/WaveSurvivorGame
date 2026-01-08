@@ -22,12 +22,12 @@ public class Main extends ApplicationAdapter {
         sm = SpriteManager.getInstance();
         em = EntityManager.getInstance();
 
-        Player player = new Player("playerTest");
+        Player player = new Player();
         om = ObjectManager.getInstance(player);
 
         tim = new TileManager();
         tim.loadTileMap("assets/mapTest");
-        om.spawnRandomObject();
+        om.spawnObjects();
         em.addPlayer(player);
 
         tm.loadTextures();

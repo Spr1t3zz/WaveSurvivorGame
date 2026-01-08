@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import io.github.wave_survivor_game.Entities.Player;
+import io.github.wave_survivor_game.Managers.SFXManager;
 import io.github.wave_survivor_game.Managers.SpriteManager;
 import io.github.wave_survivor_game.Objects.Object;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -23,21 +24,20 @@ public class GameInterface {
     private Player player;
     private SpriteManager sm;
     private ShapeRenderer shapeRenderer;
-
-    // New field to control fade-in alpha for the death screen
     private float opacity = 0f;
+    private long deathSound;
 
     public GameInterface(Player player) {
         sm = SpriteManager.getInstance();
         spriteBatch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
-        GUI = new Texture("assets/gameUI.PNG");
-        barRed = new Texture("assets/healthbarRED.PNG");
-        barBlack = new Texture("assets/healthbarShadow.PNG");
-        deathScreen = new Texture("assets/deathScreen.PNG");
+        GUI = new Texture("assets/GUI/gameUI.PNG");
+        barRed = new Texture("assets/GUI/healthbarRED.PNG");
+        barBlack = new Texture("assets/GUI/healthbarShadow.PNG");
+        deathScreen = new Texture("assets/GUI/deathScreen.PNG");
         this.player = player;
 
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("assets/AbaddonNumbersOnly-Regular.ttf"));
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/AbaddonNumbersOnly-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 48;
 
@@ -50,11 +50,10 @@ public class GameInterface {
     }
 
     public void render() {
-
         spriteBatch.begin();
         spriteBatch.draw(GUI, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
         spriteBatch.draw(barBlack, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
 
         float barX = 34;
         float barWidthDefault = 266;
@@ -86,6 +85,11 @@ public class GameInterface {
                 spriteBatch.draw(itemTexture, ItemStartX, ItemY, 40, 40);
                 ItemStartX += 55;
             }
+        }
+
+
+        if (player.getHealth() <= 0 && deathSound == 0) {
+            deathSound = SFXManager.getInstance().play("game-over");
         }
 
         if (player.getHealth() <= 0) {

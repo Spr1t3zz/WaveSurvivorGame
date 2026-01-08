@@ -41,12 +41,12 @@ public class ObjectManager {
     }
 
     public void update() {
-        spawnTimer -= Gdx.graphics.getDeltaTime();
-
-        if (spawnTimer <= 0) {
-            spawnRandomObject();
-            spawnTimer = 15.0f;
-        }
+//        spawnTimer -= Gdx.graphics.getDeltaTime();
+//
+//        if (spawnTimer <= 0) {
+//            spawnRandomObject();
+//            spawnTimer = 15.0f;
+//        }
 
         consumables.addAll(buffer);
         buffer.clear();
@@ -86,12 +86,27 @@ public class ObjectManager {
         }
     }
 
-    //    public void spawnObjects() {      //debug funkce
-    //        HealingGoblet ho1 = new HealingGoblet(7, 7);
-    //        HealingPotion ho2 = new HealingPotion(4, 4);
-    //        SpeedOrb sp1 = new SpeedOrb(9, 9);
-    //        addObject(sp1);
-    //        addObject(ho1);
-    //        addObject(ho2);
-    //    }
+        public void spawnObjects() {      //debug funkce
+            HealingGoblet ho1 = new HealingGoblet(5, 7);
+            HealingPotion hp1 = new HealingPotion(6, 7);
+            SpeedOrb sp1 = new SpeedOrb(7, 7);
+            addObject(ho1);
+            addObject(hp1);
+            addObject(sp1);
+//
+//            HealingGoblet ho2 = new HealingGoblet(5, 6);
+//            HealingPotion hp2 = new HealingPotion(6, 6);
+//            SpeedOrb sp2 = new SpeedOrb(7, 6);
+//            addObject(ho2);
+//            addObject(hp2);
+//            addObject(sp2);
+//
+//            HealingGoblet ho3 = new HealingGoblet(5, 5);
+//            HealingPotion hp3 = new HealingPotion(6, 5);
+//            SpeedOrb sp3 = new SpeedOrb(7, 5);
+//            addObject(ho3);
+//            addObject(hp3);
+//            addObject(sp3);
+
+        }
 }

@@ -59,8 +59,8 @@ public class EntityManager {
                 }
             }
         }
-
-        waveLoop();
+//
+//        waveLoop();
 
         entities.removeIf(Entity::isDestroyed);
         entities.addAll(buffer);
@@ -86,11 +86,12 @@ public class EntityManager {
 
         if (ongoingWave == true && getEnemyCount() == 0) {
             ongoingWave = false;
-            breakTimer = 5.0f;
+            breakTimer = 7.0f;
         }
 
         if (breakTimer <= 0 && !ongoingWave) {
             spawnEnemies(startingEnemyCount);
+            //play sound here, bells tolling??
             startingEnemyCount += 1;
             ongoingWave = true;
         }

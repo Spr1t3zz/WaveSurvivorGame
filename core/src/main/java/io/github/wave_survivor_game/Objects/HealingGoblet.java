@@ -1,6 +1,7 @@
 package io.github.wave_survivor_game.Objects;
 
 import io.github.wave_survivor_game.Entities.Player;
+import io.github.wave_survivor_game.Managers.SFXManager;
 import io.github.wave_survivor_game.Utilities.ObjectType;
 
 public class HealingGoblet extends ConsObject {     //minor healing of 20hp
@@ -21,6 +22,11 @@ public class HealingGoblet extends ConsObject {     //minor healing of 20hp
             player.setHealth(maxHealth);
             System.out.println("Used " + this.name);
         }
+    }
+
+    @Override
+    public void specificUsageSound() {
+        SFXManager.getInstance().play("goblet-use");
     }
 
 }

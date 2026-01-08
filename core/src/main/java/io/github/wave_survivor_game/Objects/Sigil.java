@@ -1,6 +1,7 @@
 package io.github.wave_survivor_game.Objects;
 
 import io.github.wave_survivor_game.Entities.Enemy;
+import io.github.wave_survivor_game.Entities.Entity;
 import io.github.wave_survivor_game.Entities.Player;
 import io.github.wave_survivor_game.Managers.SFXManager;
 import io.github.wave_survivor_game.Utilities.ObjectType;
@@ -24,6 +25,7 @@ public class Sigil extends ConsObject {
 
         float playerX = player.getX();
         float playerY = player.getY();
+        float radius = 150f;
         EntityManager em = EntityManager.getInstance();
 
         for (Enemy enemy : em.getEnemies()) {
@@ -31,10 +33,16 @@ public class Sigil extends ConsObject {
 
             if (distance <= radius) {
                 enemy.setHealth(0);
-                System.out.println("Killed enemies around thr player");
+
+                if (enemy instanceof Entity) {
+                    ((Entity) enemy).isDestroyed = true;
+                }
+
+                System.out.println("Killed enemy at distance " + distance);
             }
         }
     }
+
 
     @Override
     public void specificUsageSound() {

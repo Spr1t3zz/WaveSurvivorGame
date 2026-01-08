@@ -17,7 +17,7 @@ public abstract class Entity {
     protected int health;
     protected int damage;
     protected String texture;
-    protected boolean isDestroyed;
+    public boolean isDestroyed;
     protected Sprite sprite;
     public EntityType type;
 

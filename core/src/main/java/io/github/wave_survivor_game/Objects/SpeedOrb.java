@@ -20,7 +20,7 @@ public class SpeedOrb extends ConsObject {
 
     @Override
     public void specificUsageSound() {
-        SFXManager.getInstance().play("orb-use", 0.09f);
+        SFXManager.getInstance().play("orb-use", 0.06f);
     }
 
 }

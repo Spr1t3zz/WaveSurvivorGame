@@ -14,7 +14,7 @@ public class Player extends Entity {
 
     public Player() {
         super((float) Gdx.graphics.getWidth() /2, (float) Gdx.graphics.getHeight() /2, 32, 32, 2, 4, 100, 0, "playerTest", EntityType.PLAYER);
-        this.score = 0;
+        this.score = 39;
     }
 
     public void update() {

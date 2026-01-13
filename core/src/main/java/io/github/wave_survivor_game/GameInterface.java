@@ -31,9 +31,9 @@ public class GameInterface {
         sm = SpriteManager.getInstance();
         spriteBatch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
-        GUI = new Texture("assets/GUI/gameUI.PNG");
+        GUI = new Texture("assets/GUI/newUI.PNG");
         barRed = new Texture("assets/GUI/healthbarRED.PNG");
-        barBlack = new Texture("assets/GUI/healthbarShadow.PNG");
+//        barBlack = new Texture("assets/GUI/healthbarShadow.PNG");
         deathScreen = new Texture("assets/GUI/deathScreen.PNG");
         this.player = player;
 
@@ -52,14 +52,14 @@ public class GameInterface {
     public void render() {
         spriteBatch.begin();
         spriteBatch.draw(GUI, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        spriteBatch.draw(barBlack, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        spriteBatch.draw(barBlack, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 
         float barX = 34;
-        float barWidthDefault = 266;
+        float barWidthDefault = 267;
         float healthPercentage = player.getHealth() / 100f;
         float barWidth = barWidthDefault * healthPercentage;
-        spriteBatch.draw(barRed, barX, Gdx.graphics.getHeight() - 71, barWidth, 10);
+        spriteBatch.draw(barRed, barX, Gdx.graphics.getHeight() - 69, barWidth, 10);
 
 
         String scoreText = "" + player.getScore();
@@ -69,14 +69,14 @@ public class GameInterface {
         float textWidth = glyphLayout.width;
         float textHeight = glyphLayout.height;
         float textX = 483 + (100 - textWidth) / 2;
-        float textY = (Gdx.graphics.getHeight() - 83) + (70 + textHeight) / 2;
+        float textY = (Gdx.graphics.getHeight() - 80) + (70 + textHeight) / 2;
 
         font.setColor(new Color(146 / 255f, 0 / 255f, 0 / 255f, 1));
         font.draw(spriteBatch, glyphLayout, textX, textY);
 
 
         int ItemStartX = 150;
-        int ItemY = 20;
+        int ItemY = 19;
 
         for (int i = 0; i < player.getInventory().size(); i++) {
             Object obj = player.getInventory().get(i);
